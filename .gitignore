@@ -31,3 +31,4 @@ out/
 *.jks
 # 日志文件
 *.log
+.idea
