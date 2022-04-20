@@ -5,25 +5,10 @@
 
     <data>
 
-        <import type="androidx.databinding.ObservableField" />
-
-        <import type="androidx.lifecycle.MutableLiveData" />
-
         <variable
-            name="data1"
-            type="ObservableField&lt;String>" />
+            name="vm"
+            type="com.mitch.learnandroid.ui.state.MainActivityViewModel" />
 
-        <variable
-            name="data2"
-            type="MutableLiveData&lt;String>" />
-
-        <variable
-            name="user"
-            type="com.mitch.learnandroid.bean.User" />
-
-        <variable
-            name="user2"
-            type="com.mitch.learnandroid.bean.User2" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,56 +16,13 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/tv1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#ff0000"
-            android:text="@{data1}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Hello World!" />
-
-        <TextView
-            android:id="@+id/tv2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#00ff00"
-            android:text="@{data2}"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv1"
-            tools:text="Hello World!" />
-
-        <TextView
-            android:id="@+id/tv3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{user.name + user.age}"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv2" />
-
-        <TextView
-            android:id="@+id/tv4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#00ff00"
-            android:text="@{user2.name + user2.age}"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv3" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="添加Observer"/>
+        <fragment
+            android:id="@+id/mainFragmentHost"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:navGraph="@navigation/nav_main"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
