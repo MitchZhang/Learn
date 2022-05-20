@@ -26,6 +26,11 @@ class SplashFragment : BaseFragment() {
 
     override fun getDataBindingConfig(): DataBindingConfig {
         return DataBindingConfig(R.layout.fragment_splash, BR.vm, mState)
+            .addBindingParam(BR.click, object : View.OnClickListener {
+                override fun onClick(p0: View?) {
+                    nav().navigate(R.id.goTest)
+                }
+            })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +45,7 @@ class SplashFragment : BaseFragment() {
         //订阅 数据回调,非Mvp接口回调数据
         mState.request.getDictLiveData().observe(viewLifecycleOwner) {
             it?.let {
+                //todo 更加优雅的方式 获取list数据
                 if (it.success) {
                     ToastUtils.showShort("网络请求成功: 获取到${it.data?.size}条数据 !!!!!!!!!")
                     LogUtils.e("Banner数据:${it.data}")
