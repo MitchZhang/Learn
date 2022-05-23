@@ -9,7 +9,9 @@ import android.os.IBinder
 import android.widget.TextView
 import com.blankj.utilcode.util.LogUtils
 import com.mitch.learnandroid.R
-import com.mitch.learnandroid.ipc.binder.aidl.GradleInterface
+import com.mitch.learnandroid.ipc.binder.aidl.Book
+import com.mitch.learnandroid.ipc.binder.aidl.IBookManager
+import java.lang.Exception
 
 /**
  * @Class: AidlActivity
@@ -19,14 +21,16 @@ import com.mitch.learnandroid.ipc.binder.aidl.GradleInterface
  */
 class AidlActivity : Activity() {
 
-    private var mBinder : GradleInterface ?= null
+    private var mBinder : IBookManager ?= null
 
     private var mServiceConnection = object : ServiceConnection {
         override fun onServiceConnected(p0: ComponentName, p1: IBinder?) {
-            mBinder = GradleInterface.Stub.asInterface(p1)
+            LogUtils.e("onServiceConnected")
+            mBinder = IBookManager.Stub.asInterface(p1)
         }
 
         override fun onServiceDisconnected(p0: ComponentName) {
+            LogUtils.e("onServiceDisconnected")
             mBinder = null
         }
     }
@@ -35,14 +39,29 @@ class AidlActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_aidl)
         bindService()
-        findViewById<TextView>(R.id.getScore).setOnClickListener {
-          val result =  mBinder?.getScore("zmz")
-            LogUtils.e("result=$result")
+        findViewById<TextView>(R.id.getBookList).setOnClickListener {
+            val data = mBinder?.bookList
+            data?.let {
+                LogUtils.e("获取数据列表：$it")
+            }
+        }
+
+        findViewById<TextView>(R.id.addBook).setOnClickListener {
+            try {
+                val book = Book(1, "Mitch:${System.currentTimeMillis()}")
+                LogUtils.e("添加Book:${mBinder?.asBinder()?.isBinderAlive}")
+//                mBinder?.addBook(book)
+                mBinder?.addRandom()
+            }catch (e:Exception){
+                e.printStackTrace()
+                LogUtils.e("添加book出错:${e.message}")
+                bindService()
+            }
         }
     }
 
     private fun bindService() {
-        val intent = Intent("com.mitch.service")
+        val intent = Intent("com.mitch.book.service")
         intent.setPackage(packageName)
         bindService(intent, mServiceConnection, BIND_AUTO_CREATE)
     }

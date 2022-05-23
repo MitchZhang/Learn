@@ -32,6 +32,14 @@
                 <action android:name="com.mitch.service"/>
             </intent-filter>
         </service>
+
+        <service android:name=".ipc.binder.aidl.BookService"
+            android:process=":remote1"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.mitch.book.service"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
