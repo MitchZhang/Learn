@@ -24,6 +24,8 @@
 
         <activity android:name=".ipc.binder.BinderActivity" />
         <activity android:name=".ipc.binder.AidlActivity" />
+        <activity android:name=".ipc.binder.bundle.BundleActivity" />
+        <activity android:name=".ipc.binder.messenger.MessengerActivity" />
 
         <service android:name=".ipc.binder.GradleService"
             android:process=":remote"
@@ -38,6 +40,22 @@
             android:exported="false">
             <intent-filter>
                 <action android:name="com.mitch.book.service"/>
+            </intent-filter>
+        </service>
+
+        <service android:name=".ipc.binder.bundle.BundleService"
+            android:process=":remoteBundle"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.mitch.bundle.service"/>
+            </intent-filter>
+        </service>
+
+        <service android:name=".ipc.binder.messenger.MessengerService"
+            android:process=":remoteMessenger"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.mitch.messenger.service"/>
             </intent-filter>
         </service>
     </application>

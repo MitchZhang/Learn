@@ -30,6 +30,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
+            android:id="@+id/bundle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="#ff0000"
+            android:onClick="@{()->click.toBundle()}"
+            android:text="Bundle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/binder" />
+
+        <Button
             android:id="@+id/aidl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +51,19 @@
             android:text="Aidl"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/binder" />
+            app:layout_constraintTop_toBottomOf="@id/bundle" />
+
+        <Button
+            android:id="@+id/messenger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="#ff0000"
+            android:onClick="@{()->click.toMessenger()}"
+            android:text="Messenger"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/aidl" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

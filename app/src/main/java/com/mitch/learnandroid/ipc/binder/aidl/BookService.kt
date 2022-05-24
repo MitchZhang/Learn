@@ -4,6 +4,7 @@ import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import com.blankj.utilcode.util.LogUtils
+import java.util.concurrent.CopyOnWriteArrayList
 
 /**
  * @Class: BookService
@@ -13,7 +14,7 @@ import com.blankj.utilcode.util.LogUtils
  */
 class BookService : Service() {
 
-    private var mBookList: MutableList<Book> = mutableListOf()
+    private var mBookList: CopyOnWriteArrayList<Book> = CopyOnWriteArrayList()
 
     private var mBinder = object : IBookManager.Stub() {
         override fun basicTypes(

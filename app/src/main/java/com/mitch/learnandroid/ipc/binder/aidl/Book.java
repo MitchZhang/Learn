@@ -2,7 +2,6 @@ package com.mitch.learnandroid.ipc.binder.aidl;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 /**
  * @Class: Book
  * @Description:
