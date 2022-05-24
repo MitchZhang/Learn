@@ -3,6 +3,7 @@ package com.mitch.learnandroid.ipc.binder.aidl
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
+import android.util.Log
 import com.blankj.utilcode.util.LogUtils
 import java.util.concurrent.CopyOnWriteArrayList
 
@@ -38,30 +39,25 @@ class BookService : Service() {
         }
 
         override fun addBook(book: Book?) {
-            LogUtils.e("addBook:$book")
             synchronized(this) {
                 try {
-                    if (book == null) {
-                        LogUtils.e("Client 传过来的数据为空")
-                    } else {
+                    if (book != null) {
                         mBookList.add(book)
-                        LogUtils.e("收到Client数据:$book")
                     }
                 }catch (e:Exception){
-                    LogUtils.e("addBook: Exception,err=${e.message}")
                     e.printStackTrace()
                 }
+                Log.e("zmz","addBook:$book")
             }
         }
 
         override fun addRandom() {
-            LogUtils.e("addRandom:start")
-            val book = Book(1, "Random:${System.currentTimeMillis()}")
-            mBookList.add(book)
-            LogUtils.e("addRandom:$book")
+            synchronized(this){
+                val book = Book(1, "添加的书籍:${System.currentTimeMillis()}")
+                mBookList.add(book)
+                Log.e("zmz","addRandom:添加书籍 $book")
+            }
         }
-
-
     }
 
     override fun onCreate() {

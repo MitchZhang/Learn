@@ -13,7 +13,7 @@ interface IBookManager {
 
    List<Book> getBookList();
 
-  void addBook(inout Book book);
+  void addBook(in Book book);
 
   void addRandom();
 }

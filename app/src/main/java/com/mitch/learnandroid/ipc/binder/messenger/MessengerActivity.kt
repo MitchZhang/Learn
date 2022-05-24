@@ -62,4 +62,9 @@ class MessengerActivity : Activity() {
             mMessenger?.send(message)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unbindService(mServiceConnection)
+    }
 }

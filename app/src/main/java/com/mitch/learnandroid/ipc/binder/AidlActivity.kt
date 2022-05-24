@@ -49,13 +49,12 @@ class AidlActivity : Activity() {
         findViewById<TextView>(R.id.addBook).setOnClickListener {
             try {
                 val book = Book(1, "Mitch:${System.currentTimeMillis()}")
-                LogUtils.e("添加Book:${mBinder?.asBinder()?.isBinderAlive}")
-//                mBinder?.addBook(book)
-                mBinder?.addRandom()
+                mBinder?.addBook(book)
+                val result = mBinder?.bookList
+                LogUtils.e("添加书籍之后:$result")
             }catch (e:Exception){
                 e.printStackTrace()
                 LogUtils.e("添加book出错:${e.message}")
-                bindService()
             }
         }
     }
