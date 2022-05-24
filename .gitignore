@@ -32,3 +32,4 @@ out/
 # 日志文件
 *.log
 .idea
+/.idea/
