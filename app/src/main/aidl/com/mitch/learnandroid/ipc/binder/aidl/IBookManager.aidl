@@ -2,7 +2,7 @@
 package com.mitch.learnandroid.ipc.binder.aidl;
 // Declare any non-default types here with import statements
 import com.mitch.learnandroid.ipc.binder.aidl.Book;
-
+import com.mitch.learnandroid.ipc.binder.aidl.INewBookAriveListener;
 interface IBookManager {
     /**
      * Demonstrates some basic types that you can use as parameters
@@ -16,4 +16,9 @@ interface IBookManager {
   void addBook(in Book book);
 
   void addRandom();
+
+  void registListener(INewBookAriveListener listener);
+
+  int unRegistListener(INewBookAriveListener listener);
+
 }

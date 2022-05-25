@@ -5,8 +5,8 @@
 
     <TextView
         android:id="@+id/getBookList"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="#ff0000"
         android:gravity="center"
         android:textStyle="bold"
@@ -15,14 +15,25 @@
 
     <TextView
         android:id="@+id/addBook"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="#ff00ff"
         android:gravity="center"
         android:textStyle="bold"
         android:layout_below="@id/getBookList"
         android:layout_centerInParent="true"
         android:text="添加Book数据"/>
+
+    <TextView
+        android:id="@+id/removeListener"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#ff00ff"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_below="@id/addBook"
+        android:layout_centerInParent="true"
+        android:text="移除listener"/>
 
 
 </RelativeLayout>

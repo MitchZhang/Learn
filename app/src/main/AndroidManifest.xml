@@ -23,7 +23,7 @@
         </activity>
 
         <activity android:name=".ipc.binder.BinderActivity" />
-        <activity android:name=".ipc.binder.AidlActivity" />
+        <activity android:name=".ipc.binder.aidl.AidlActivity" />
         <activity android:name=".ipc.binder.bundle.BundleActivity" />
         <activity android:name=".ipc.binder.messenger.MessengerActivity" />
 

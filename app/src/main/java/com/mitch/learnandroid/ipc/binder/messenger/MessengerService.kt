@@ -32,7 +32,6 @@ class MessengerService : Service() {
                         msg.replyTo?.send(replayMessage)
                     }
                 }
-
             }
         }
     }

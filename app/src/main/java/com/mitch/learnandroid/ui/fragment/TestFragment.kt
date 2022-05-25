@@ -6,7 +6,7 @@ import com.kunminx.architecture.ui.page.BaseFragment
 import com.kunminx.architecture.ui.page.DataBindingConfig
 import com.mitch.learnandroid.BR
 import com.mitch.learnandroid.R
-import com.mitch.learnandroid.ipc.binder.AidlActivity
+import com.mitch.learnandroid.ipc.binder.aidl.AidlActivity
 import com.mitch.learnandroid.ipc.binder.BinderActivity
 import com.mitch.learnandroid.ipc.binder.messenger.MessengerActivity
 import com.mitch.learnandroid.ipc.binder.bundle.BundleActivity
@@ -36,7 +36,7 @@ class TestFragment : BaseFragment() {
         }
 
         fun toAidl(){
-            startActivity(Intent(activity,AidlActivity::class.java))
+            startActivity(Intent(activity, AidlActivity::class.java))
         }
 
         fun toBundle(){
