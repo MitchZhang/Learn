@@ -16,8 +16,6 @@ import com.mitch.learnandroid.tools.EventTools
 class MyLinearLayout(var mContext: Context, var attributes: AttributeSet) :
     LinearLayout(mContext, attributes) {
 
-    var interceptEvent = false
-
     //ViewGroup的事件分发
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
         Log.e("MyLinearLayout","dispatchTouchEvent:${EventTools.getEventStr(ev.action)}")

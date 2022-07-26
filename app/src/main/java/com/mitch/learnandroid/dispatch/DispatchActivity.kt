@@ -1,6 +1,7 @@
 package com.mitch.learnandroid.dispatch
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
@@ -16,36 +17,41 @@ import com.mitch.learnandroid.tools.EventTools
  * @author: MitchZhang
  * @Date: 2022/7/20
  */
-class DispatchActivity : Activity() {
+class DispatchActivity : Activity() ,View.OnClickListener{
 
     private lateinit var btn1: Button
     private lateinit var btn2: Button
-    private lateinit var viewGroup: MyLinearLayout
+    private lateinit var btn3: Button
 
     // 事件分发顺序: Activity->Window(PhoneWindow)->DecorView(setContentView设置的view)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dispatch_layout)
-        btn2 = findViewById<Button>(R.id.btn2)
+        initView()
+    }
+
+    private fun initView() {
         btn1 = findViewById<Button>(R.id.btn1)
-        viewGroup = findViewById<MyLinearLayout>(R.id.ll)
-        btn1.setOnClickListener {
-            ToastUtils.showShort("Btn1 Click")
+        btn2 = findViewById<Button>(R.id.btn2)
+        btn3 = findViewById<Button>(R.id.btn3)
+
+        btn1.setOnClickListener(this)
+        btn2.setOnClickListener(this)
+        btn3.setOnClickListener(this)
+
+    }
+
+    override fun onClick(v: View) {
+        when(v.id){
+            R.id.btn1 ->{
+
+            }
+            R.id.btn2 ->{
+
+            }
+            R.id.btn3 ->{
+
+            }
         }
-        btn2.setOnClickListener {
-            ToastUtils.showShort("Btn2 Click")
-            viewGroup.interceptEvent = true
-        }
     }
-
-    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        Log.e("DispatchActivity", "dispatchTouchEvent:${EventTools.getEventStr(ev.action)}")
-        return super.dispatchTouchEvent(ev)
-    }
-
-    override fun onTouchEvent(event: MotionEvent): Boolean {
-        Log.e("DispatchActivity", "onTouchEvent:${EventTools.getEventStr(event.action)}")
-        return super.onTouchEvent(event)
-    }
-
 }
