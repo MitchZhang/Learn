@@ -10,6 +10,7 @@ import com.mitch.learnandroid.ipc.binder.aidl.AidlActivity
 import com.mitch.learnandroid.ipc.binder.BinderActivity
 import com.mitch.learnandroid.ipc.binder.messenger.MessengerActivity
 import com.mitch.learnandroid.ipc.binder.bundle.BundleActivity
+import com.mitch.learnandroid.ipc.binder.contentprovider.ProviderActivity
 
 /**
  * @Class: TestFragment
@@ -45,6 +46,10 @@ class TestFragment : BaseFragment() {
 
         fun toMessenger(){
             startActivity(Intent(activity,MessengerActivity::class.java))
+        }
+
+        fun toProviderActivity(){
+            startActivity(Intent(activity,ProviderActivity::class.java))
         }
     }
 

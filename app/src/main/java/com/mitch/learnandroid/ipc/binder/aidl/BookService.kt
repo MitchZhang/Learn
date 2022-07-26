@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.IBinder
 import android.os.RemoteCallbackList
 import android.util.Log
-import com.blankj.utilcode.util.LogUtils
 import java.util.concurrent.CopyOnWriteArrayList
 
 /**

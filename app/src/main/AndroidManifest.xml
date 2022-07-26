@@ -26,6 +26,8 @@
         <activity android:name=".ipc.binder.aidl.AidlActivity" />
         <activity android:name=".ipc.binder.bundle.BundleActivity" />
         <activity android:name=".ipc.binder.messenger.MessengerActivity" />
+        <activity android:name=".ipc.binder.contentprovider.ProviderActivity" />
+        <activity android:name=".dispatch.DispatchActivity" />
 
         <service android:name=".ipc.binder.GradleService"
             android:process=":remote"
@@ -58,6 +60,12 @@
                 <action android:name="com.mitch.messenger.service"/>
             </intent-filter>
         </service>
+        
+        <provider
+            android:authorities="com.mitch.learnandroid.ipc.binder.contentprovider.BookProvider"
+            android:name=".ipc.binder.contentprovider.BookProvider"
+            android:permission="com.mitch.provider"
+            android:process=":provider"/>
     </application>
 
 </manifest>

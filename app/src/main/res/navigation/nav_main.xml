@@ -10,12 +10,19 @@
         android:name="com.mitch.learnandroid.ui.fragment.SplashFragment">
 
         <action app:destination="@id/testFragment" android:id="@+id/goTest"/>
+        <action app:destination="@id/dispatchFragment" android:id="@+id/goDispatch"/>
 
     </fragment>
 
     <fragment
         android:id="@+id/testFragment"
         android:name="com.mitch.learnandroid.ui.fragment.TestFragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/dispatchFragment"
+        android:name="com.mitch.learnandroid.ui.fragment.DispatchFragment">
 
     </fragment>
 

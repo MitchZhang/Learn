@@ -28,7 +28,7 @@ class SplashFragment : BaseFragment() {
         return DataBindingConfig(R.layout.fragment_splash, BR.vm, mState)
             .addBindingParam(BR.click, object : View.OnClickListener {
                 override fun onClick(p0: View?) {
-                    nav().navigate(R.id.goTest)
+                    nav().navigate(R.id.goDispatch)
                 }
             })
     }

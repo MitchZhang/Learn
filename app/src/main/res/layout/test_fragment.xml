@@ -65,5 +65,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/aidl" />
 
+        <Button
+            android:id="@+id/provider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="#ff0000"
+            android:onClick="@{()->click.toProviderActivity()}"
+            android:text="ContentProvider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/messenger" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
